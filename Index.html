@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeDrive Insurance</title>
+    <style>
+        /* Basic Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+        /* Header Styling */
+        header {
+            background-color: #004aad;
+            padding: 15px 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003580;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        nav a:hover { background-color: #005fe6; }
+
+        /* Page Container */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sections */
+        section { display: none; }
+        section.active { display: block; }
+
+        h1, h2 { color: #004aad; margin-bottom: 10px; }
+        p { line-height: 1.6; margin-bottom: 15px; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #003580;
+            color: white;
+            padding: 12px;
+            margin-top: 20px;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background-color: #004aad;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #005fe6; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>SafeDrive Insurance</h1>
+        <p>Your Trusted Partner in Vehicle Insurance</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('services')">Services</a>
+        <a href="#" onclick="showPage('claims')">Claims</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <!-- Page Container -->
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <h2>Welcome to SafeDrive Insurance</h2>
+            <p>We provide comprehensive vehicle insurance plans designed to keep you safe and secure on the road. Our dedicated team ensures quick claim processing and excellent customer support.</p>
+            <a href="#" class="btn" onclick="showPage('services')">Explore Our Services</a>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Insurance Plans</h2>
+            <p>We offer a variety of plans to suit your needs:</p>
+            <ul>
+                <li><b>Third-Party Insurance</b> – Basic coverage for third-party damages.</li>
+                <li><b>Comprehensive Insurance</b> – Full protection for you and your vehicle.</li>
+                <li><b>Zero Depreciation Cover</b> – Get maximum claim value without deductions.</li>
+            </ul>
+            <a href="#" class="btn" onclick="showPage('claims')">File a Claim</a>
+        </section>
+
+        <!-- Claims Section -->
+        <section id="claims">
+            <h2>Claim Assistance</h2>
+            <p>Accident? No worries. Follow these steps to file a claim:</p>
+            <ol>
+                <li>Report your incident via our 24x7 helpline.</li>
+                <li>Submit required documents like RC, License, and FIR.</li>
+                <li>Our team verifies and processes your claim quickly.</li>
+            </ol>
+            <p><b>Helpline:</b> +91-98765-43210</p>
+            <a href="#" class="btn" onclick="showPage('contact')">Contact Us</a>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Have questions? Get in touch with us:</p>
+            <p><b>Email:</b> support@safedrive.com</p>
+            <p><b>Phone:</b> +91-98765-43210</p>
+            <p><b>Address:</b> 123 Insurance Avenue, Mumbai, India</p>
+            <a href="#" class="btn" onclick="showPage('home')">Back to Home</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 SafeDrive Insurance. All Rights Reserved.
+    </footer>
+
+    <!-- JavaScript for Page Switching -->
+    <script>
+        function showPage(pageId) {
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => section.classList.remove("active"));
+            document.getElementById(pageId).classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
