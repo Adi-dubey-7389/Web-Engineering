@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuesday's jQuery Task Checker</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #task-input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        #add-task-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        #toggle-list-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+        #task-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            text-align: left;
+        }
+        #task-list li {
+            background: #f8f9fa;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        #task-list li:hover {
+            background-color: #e9ecef;
+        }
+        /* This class will be toggled by jQuery */
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+            background-color: #e8f5e9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tuesday's Task Checker</h1>
+        <input type="text" id="task-input" placeholder="Enter a new task...">
+        <br>
+        <button id="add-task-btn">Add Task</button>
+        <button id="toggle-list-btn">Toggle List</button>
+        
+        <ul id="task-list">
+            <li>Review project proposal</li>
+            <li>Prepare for team meeting</li>
+            <li>Follow up with the design team</li>
+        </ul>
+    </div>
+
+    <script>
+    // JQUERY FUNCTION 1: $(document).ready()
+    // Ensures the script runs only after the page is fully loaded.
+    $(document).ready(function() {
+
+        // JQUERY FUNCTION 2: .click()
+        // Attaches a click event to the "Add Task" button.
+        $('#add-task-btn').click(function() {
+            let taskText = $('#task-input').val(); // Get text from input
+
+            // Check if the input is not empty
+            if (taskText.trim() !== '') {
+                // JQUERY FUNCTION 3: .append()
+                // Adds the new task as an <li> element to the task list.
+                $('#task-list').append('<li>' + taskText + '</li>');
+                
+                // Clear the input field for the next task
+                $('#task-input').val('');
+            }
+        });
+
+        // JQUERY FUNCTION 4: .toggleClass() using event delegation
+        // When any 'li' inside '#task-list' is clicked, toggle the 'completed' class.
+        // We use .on() for event delegation so that newly added tasks also work.
+        $('#task-list').on('click', 'li', function() {
+            $(this).toggleClass('completed');
+        });
+
+        // JQUERY FUNCTION 5: .slideToggle()
+        // Attaches a click event to the "Toggle List" button to hide/show the list.
+        $('#toggle-list-btn').click(function() {
+            $('#task-list').slideToggle(400); // 400 is the animation speed in ms
+        });
+
+    });
+    </script>
+
+</body>
+</html>
